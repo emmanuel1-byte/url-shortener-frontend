@@ -20,8 +20,8 @@ form {
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
     text-align: center;
-    width: max-content;
-    height: 50vh;
+    width: 20em;
+    height: 20em;
     padding: 30px;
    
 }
@@ -34,11 +34,16 @@ form {
 }
 
 #s-url {
+    text-decoration: none;
     margin-bottom: 20px;
     border-radius: 3px;
     padding: 10px;
     border: 0;
     display: none;
+}
+
+#s-url:hover{
+    text-decoration: underline;
 }
 
 #title {

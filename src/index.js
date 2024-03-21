@@ -27,6 +27,8 @@ document.getElementById("b1").addEventListener("click", async function (e) {
   console.log(data);
   let short_url = document.getElementById("s-url");
   short_url.style.display = "block";
-  short_url.value = data.data.short_url;
+  short_url.href = data.data.short_url;
+  short_url.innerHTML = `${data.data.short_url}`
+
   document.getElementById("l-url").value = "";
 });
