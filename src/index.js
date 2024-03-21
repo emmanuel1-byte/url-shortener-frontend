@@ -1,11 +1,15 @@
+
 /**
- * Adds a click event listener to the button with ID "b1" that makes
- * an async POST request to the URL shortener API to shorten the URL.
- * Handles the response and displays the shortened URL in the input
- * with ID "s-url".
+ * Adds a click event listener to the button with ID "b1" that handles submitting
+ * a URL to be shortened. Validates input URL, makes request to shortening API,
+ * displays shortened URL in output field if successful.
  */
 document.getElementById("b1").addEventListener("click", async function (e) {
   e.preventDefault();
+  if (document.getElementById("l-url").value === "") {
+    alert("Please enter a valid URL");
+    return;
+  }
   const res = await fetch("https://url-shortener-yh27.onrender.com", {
     method: "POST",
     headers: {
@@ -24,5 +28,5 @@ document.getElementById("b1").addEventListener("click", async function (e) {
   let short_url = document.getElementById("s-url");
   short_url.style.display = "block";
   short_url.value = data.data.short_url;
-  document.getElementById("l-url").value=''
+  document.getElementById("l-url").value = "";
 });
