@@ -58,3 +58,44 @@ form {
     border: none;
     border-radius: 5px;
 }
+
+#d1, #d2, #d3, #d4, #d5{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: calc(50% - 1em);
+    border-radius: 1em;
+    transform-origin: 1em 2em;
+    animation: rotate;
+    animation-iteration-count: infinite;
+    animation-duration: 1.6s;
+    background-color: red;
+    display: none;
+
+}
+
+
+@keyframes rotate { 
+    0% { transform: rotate(0deg); }
+  100% { transform: rotate(390deg); } 
+} 
+#d1 { 
+  animation-delay: 0.1s; 
+  background-color: gold; 
+} 
+#d2 { 
+  animation-delay: 0.2s; 
+  background-color: black; 
+} 
+#d3 { 
+  animation-delay: 0.1s; 
+  background-color: gold; 
+} 
+#d4 { 
+  animation-delay: 0.4s; 
+  background-color: black; 
+} 
+#d5 { 
+  animation-delay: 0.5s; 
+  background-color: gold; 
+} 

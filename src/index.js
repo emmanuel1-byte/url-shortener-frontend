@@ -10,6 +10,11 @@ document.getElementById("b1").addEventListener("click", async function (e) {
     alert("Please enter a valid URL");
     return;
   }
+
+  document.querySelectorAll('div').forEach((divs)=>{
+    return divs.style.display='block'
+   })
+
   const res = await fetch("https://url-shortener-yh27.onrender.com", {
     method: "POST",
     headers: {
@@ -23,6 +28,12 @@ document.getElementById("b1").addEventListener("click", async function (e) {
     console.log(res);
     return;
   }
+
+
+ document.querySelectorAll('div').forEach((divs)=>{
+  return divs.style.display='none'
+ })
+
   const data = await res.json();
   console.log(data);
   let short_url = document.getElementById("s-url");
@@ -32,3 +43,4 @@ document.getElementById("b1").addEventListener("click", async function (e) {
 
   document.getElementById("l-url").value = "";
 });
+
