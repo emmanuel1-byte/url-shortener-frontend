@@ -4,12 +4,8 @@
  * a URL to be shortened. Validates input URL, makes request to shortening API,
  * displays shortened URL in output field if successful.
  */
-document.getElementById("b1").addEventListener("click", async function (e) {
+document.querySelector("form").addEventListener("submit", async function (e) {
   e.preventDefault();
-  if (document.getElementById("l-url").value === "") {
-    alert("Please enter a valid URL");
-    return;
-  }
 
   document.querySelectorAll('div').forEach((divs)=>{
     return divs.style.display='block'
