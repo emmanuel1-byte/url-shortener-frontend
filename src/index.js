@@ -1,15 +1,19 @@
-
 /**
- * Adds a click event listener to the button with ID "b1" that handles submitting
- * a URL to be shortened. Validates input URL, makes request to shortening API,
- * displays shortened URL in output field if successful.
+ * Adds a submit event listener to the form that:
+ * - Prevents default form submission
+ * - Shows all div elements
+ * - Makes request to URL shortener API
+ * - Hides all div elements again
+ * - Displays and updates short URL link
+ * - Clears long URL input
  */
+
 document.querySelector("form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  document.querySelectorAll('div').forEach((divs)=>{
-    return divs.style.display='block'
-   })
+  document.querySelectorAll("div").forEach((divs) => {
+    return (divs.style.display = "block");
+  });
 
   const res = await fetch("https://url-shortener-yh27.onrender.com", {
     method: "POST",
@@ -25,18 +29,16 @@ document.querySelector("form").addEventListener("submit", async function (e) {
     return;
   }
 
-
- document.querySelectorAll('div').forEach((divs)=>{
-  return divs.style.display='none'
- })
+  document.querySelectorAll("div").forEach((divs) => {
+    return (divs.style.display = "none");
+  });
 
   const data = await res.json();
   console.log(data);
   let short_url = document.getElementById("s-url");
   short_url.style.display = "block";
   short_url.href = data.data.short_url;
-  short_url.innerHTML = `${data.data.short_url}`
+  short_url.innerHTML = `${data.data.short_url}`;
 
   document.getElementById("l-url").value = "";
 });
-
